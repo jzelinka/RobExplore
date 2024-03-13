@@ -1,0 +1,2 @@
+# not ignore remote api
+!remoteApi.*
