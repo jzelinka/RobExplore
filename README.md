@@ -4,7 +4,22 @@ Is capable of multirobot exploration of unknown environment in VREP simulation. 
 TODO add some image
 
 ## Installation & Usage
-Quickly describe that you have to install VREP and some more python packages to fully use my thing.
+Install the required packages using:
+```bash
+pip install -r requirements.txt
+```
+Download CoppeliaSim Edu from [web](https://www.coppeliarobotics.com/downloads) and extract the archive. The simulator can be than started using:
+```bash
+./coppeliaSim.sh
+```
+You can than load the scenes from the `vrep_scenes` directory. For the multirobot exploration use the `locks_multirobot.ttt` scene.
+
+Run the multirobot exploration using:
+```bash
+python Explorer.py
+```
+
+TODO Quickly describe that you have to install VREP and some more python packages to fully use my thing.
 
 ## Features
 The created approach consists of several components, which are described in the following sections. The components are designed to be modular, so they can be easily replaced or extended. The components are:
