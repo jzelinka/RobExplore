@@ -2,6 +2,8 @@ import matplotlib.pyplot as plt
 import hexapod_robot.HexapodRobot as hexapod
 import hexapod_explorer.HexapodExplorer as explorer
 import hexapod_robot.HexapodController as controller
+import argparse
+import pathlib
 from messages import *
 import time
 
@@ -395,7 +397,19 @@ class Explorer:
             print("No path found.===========")
 
 if __name__ == "__main__":
-    # define the indexes of the robots in the simulation
+    parser = argparse.ArgumentParser(description="Explorer")
+    parser.add_argument("-s", "--save", action="store_true", help="Save the figures to the figs directory.", default=False)
+    parser.add_argument("-m", "--mutal_info", action="store_true", help="Use mutal info for goal selection.", default=False)
+    parser.add_argument("-p", "--min-pos", action="store_true", help="Use min pos navigation.", default=False)
+
+    args = parser.parse_args()
+    SAVE_FIGS = args.save
+    USE_MUTAL_INFO = args.mutal_info
+    MIN_POS = args.min_pos
+
+    if SAVE_FIGS:
+        pathlib.Path("figs").mkdir(exist_ok=True)
+
     ax_size = (5, 6)
 
     expl = explorer.HexapodExplorer()

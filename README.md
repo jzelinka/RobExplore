@@ -1,8 +1,6 @@
 # RobExplore
 Is capable of multirobot exploration of unknown environment in VREP simulation. The robots utilze LIDARs to scan the surrounding environment. Scans are used to create a map of surrounding environment, which allows the robots to avoid obstacles and select the most promissing frontiers for future exploration.
 
-TODO add some image
-
 ## Installation & Usage
 Install the required packages using:
 ```bash
@@ -12,14 +10,19 @@ Download CoppeliaSim Edu from [web](https://www.coppeliarobotics.com/downloads) 
 ```bash
 ./coppeliaSim.sh
 ```
-You can than load the scenes from the `vrep_scenes` directory. For the multirobot exploration use the `locks_multirobot.ttt` scene.
+You can than load the scenes from the `vrep_scenes` directory. For the multirobot exploration use the `locks_multirobot.ttt` scene and the correctly loaded CoppeliaSim should look like this:
+
+![CoppeliaSim](figs/coppelia-sim.png)
 
 Run the multirobot exploration using:
 ```bash
 python Explorer.py
 ```
+By default the robots explore the closest frontier and don't use the mutal information about the goal selection of the other robot. The info about using the options can be accessed by `python Explorer.py --help`. The provided visualizations show the merged maps of the robots with the selected goals, and the individual inflated maps of the robots with the accessible goals.
 
-TODO Quickly describe that you have to install VREP and some more python packages to fully use my thing.
+![Multirobot exploration](figs/exploration.png)
+
+The `frontier_exploration_showcase.py` shows the frontier selection using different approaches. Finally, the script `single_explores.py` utilizes just a single robot to explore the environment.
 
 ## Features
 The created approach consists of several components, which are described in the following sections. The components are designed to be modular, so they can be easily replaced or extended. The components are:
